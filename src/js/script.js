@@ -598,7 +598,6 @@ function shoppingCart() {
   });
 }
 
-shoppingCart();
 const productFillter = document.getElementById("fillter-prodcuts");
 
 document
@@ -611,81 +610,133 @@ document
     }
   });
 
+function productSlider() {
+  const similarProductsContainer = document.querySelector(
+    ".similar-products-slider"
+  );
+  const prevButton = document.querySelector(".prev-similar-product-button");
+  const nextButton = document.querySelector(".next-similar-product-button");
 
+  let isDragging = false;
+  let startX, scrollLeft;
 
+  similarProductsContainer.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.pageX - similarProductsContainer.offsetLeft;
+    scrollLeft = similarProductsContainer.scrollLeft;
+    similarProductsContainer.style.cursor = "grabbing";
+  });
 
+  similarProductsContainer.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - similarProductsContainer.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    similarProductsContainer.scrollLeft = scrollLeft - walk;
+  });
 
+  similarProductsContainer.addEventListener("mouseup", () => {
+    isDragging = false;
+    similarProductsContainer.style.cursor = "grab";
+  });
 
+  similarProductsContainer.addEventListener("mouseleave", () => {
+    isDragging = false;
+    similarProductsContainer.style.cursor = "grab";
+  });
 
-  function productSlider() {
-    const similarProductsContainer = document.querySelector(".similar-products-slider");
-    const prevButton = document.querySelector(".prev-similar-product-button");
-    const nextButton = document.querySelector(".next-similar-product-button");
-  
-    let isDragging = false;
-    let startX, scrollLeft;
-  
-    // قابلیت درگ و دراپ
-    similarProductsContainer.addEventListener("mousedown", (e) => {
-      isDragging = true;
-      startX = e.pageX - similarProductsContainer.offsetLeft;
-      scrollLeft = similarProductsContainer.scrollLeft;
-      similarProductsContainer.style.cursor = "grabbing";
+  similarProductsContainer.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    const touch = e.touches[0];
+    startX = touch.pageX - similarProductsContainer.offsetLeft;
+    scrollLeft = similarProductsContainer.scrollLeft;
+  });
+
+  similarProductsContainer.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    const x = touch.pageX - similarProductsContainer.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    similarProductsContainer.scrollLeft = scrollLeft - walk;
+  });
+
+  similarProductsContainer.addEventListener("touchend", () => {
+    isDragging = false;
+  });
+
+  prevButton.addEventListener("click", () => {
+    similarProductsContainer.scrollBy({
+      left: 200,
+      behavior: "smooth",
     });
-  
-    similarProductsContainer.addEventListener("mousemove", (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-      const x = e.pageX - similarProductsContainer.offsetLeft;
-      const walk = (x - startX) * 1.5;
-      similarProductsContainer.scrollLeft = scrollLeft - walk;
+  });
+
+  nextButton.addEventListener("click", () => {
+    similarProductsContainer.scrollBy({
+      left: -200,
+      behavior: "smooth",
     });
-  
-    similarProductsContainer.addEventListener("mouseup", () => {
-      isDragging = false;
-      similarProductsContainer.style.cursor = "grab";
-    });
-  
-    similarProductsContainer.addEventListener("mouseleave", () => {
-      isDragging = false;
-      similarProductsContainer.style.cursor = "grab";
-    });
-  
-    similarProductsContainer.addEventListener("touchstart", (e) => {
-      isDragging = true;
-      const touch = e.touches[0];
-      startX = touch.pageX - similarProductsContainer.offsetLeft;
-      scrollLeft = similarProductsContainer.scrollLeft;
-    });
-  
-    similarProductsContainer.addEventListener("touchmove", (e) => {
-      if (!isDragging) return;
-      const touch = e.touches[0];
-      const x = touch.pageX - similarProductsContainer.offsetLeft;
-      const walk = (x - startX) * 1.5; 
-      similarProductsContainer.scrollLeft = scrollLeft - walk;
-    });
-  
-    similarProductsContainer.addEventListener("touchend", () => {
-      isDragging = false;
-    });
-  
-    prevButton.addEventListener("click", () => {
-      similarProductsContainer.scrollBy({
-        left: 200, 
-        behavior: "smooth",
-      });
-    });
-  
-    nextButton.addEventListener("click", () => {
-      similarProductsContainer.scrollBy({
-        left: -200,
-        behavior: "smooth",
-      });
-    });
+  });
+}
+// Number of products in the shopping cart
+function totalProductItem() {
+  const productCounter = document.querySelector(".product-counter-box span");
+  const increaseButton = document.querySelector(
+    ".product-counter-box .increase-product"
+  );
+  const decreaseButton = document.querySelector(
+    ".product-counter-box .decrease-product"
+  );
+
+  const mainProductPrice = document.querySelector(".main-product-price");
+  const totalProductPrice = document.querySelector(".total-product-price");
+
+  let number = parseInt(productCounter.textContent, 10);
+  let pricePerUnit = parseInt(mainProductPrice.textContent.replace(/\D/g, ""), 10); 
+
+  if (isNaN(number)) {
+    number = 1;
+    productCounter.textContent = number;
   }
-  
-  productSlider(); 
+
+  if (isNaN(pricePerUnit)) {
+    pricePerUnit = 0;
+  }
+
+  const updateTotalPrice = () => {
+    totalProductPrice.textContent ="مجموع قیمت  کل :  "+ (number * pricePerUnit).toLocaleString() + " تومان";
+  };
+
+  const updateDecreaseButtonState = () => {
+    if (number <= 1) {
+      decreaseButton.disabled = true;
+    } else {
+      decreaseButton.disabled = false;
+    }
+  };
+
+  updateTotalPrice();
+  updateDecreaseButtonState();
+
+  increaseButton?.addEventListener("click", () => {
+    number += 1;
+    productCounter.textContent = number;
+    updateTotalPrice();
+    updateDecreaseButtonState();
+  });
+
+  decreaseButton?.addEventListener("click", () => {
+    if (number > 1) {
+      number -= 1;
+      productCounter.textContent = number;
+      updateTotalPrice();
+      updateDecreaseButtonState();
+    }
+  });
+}
 document.addEventListener("DOMContentLoaded", () => {
   pagination();
+  shoppingCart();
+  productSlider();
+  totalProductItem();
 });

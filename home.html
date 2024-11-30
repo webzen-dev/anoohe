@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>مزون آنوهه</title>
+  <link rel="stylesheet" href="/src/css/style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/src/images/fovicon.png">
+  <meta name="description"
+    content="خرید جدیدترین مدل مانتو مجلسی،اسپرت،بهاره،تابستانه،زنانه ودخترانه، مزونی و انواع مانتو اداری همراه بروزترین شال و روسری سال 2024 مناسب فصول و تخفیفات شگفت انگیز" />
+  <meta name="author" content="seelenzo.ir">
+
+</head>
+
+<body>
+  <div class="home-container">
+    <header>
+      <button id="menu-page-routing-button">
+        <!-- insert icon in js code  -->
+      </button>
+      <!-- login box -->
+      <div class="login">
+        <button class="close-login-box">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <span>وارد شوید</span>
+        <input type="number" placeholder="شما تلفن خود را وارد کنید" class="login-input">
+        <button class="login-button">ارسال کد</button>
+
+      </div>
+      <!-- authenticate box -->
+
+      <div class="authenticate-box">
+        <button class="close-authenticate-box">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <span>کد ارسال شده را وارد کنید : </span>
+        <div class="input-box">
+          <input type="number" name="" id=""><input type="number" name="" id=""><input type="number" name=""
+            id=""><input type="number" name="" id=""><input type="number" name="" id="">
+        </div>
+        <button class="login-button">ورود</button>
+      </div>
+      <div class="menu-items">
+        <a href="/home.html">
+          <i class="bi bi-house-door"></i>
+          <span>خانه</span>
+        </a>
+        <button class="profile-button" href="">
+          <i class="bi bi-person"></i>
+          <span>پروفایل </span>
+        </button>
+
+        <a href="/shopping-cart.html"> <i class="bi bi-cart3"></i> <span>سبد خرید </span> </a>
+
+        <button onclick="openSearchBox()">
+          <i class="bi bi-search"></i>
+          <span>جست وجو</span>
+        </button>
+      </div>
+      <div class="logo"><img src="/src/images/logo.jpg" alt="" /></div>
+      <div id="menu-page-routing-box">
+        <a href="">درباره ما
+          <i class="bi bi-info-circle"></i>
+        </a>
+        <a href="">تماس با ما
+
+          <i class="bi bi-telephone"></i>
+        </a>
+        <a href="">
+          همکاری با ما
+          <i class="bi bi-headset"></i></a>
+        <a href="">سوالات متداول
+          <i class="bi bi-chat-dots"></i>
+        </a>
+        <a href="">جدول سایز بندی
+
+          <i class="bi bi-file-spreadsheet"></i>
+        </a>
+      </div>
+      <div id="search-box">
+        <button id="close-search-box-button">
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div class="box">
+          <i class="bi bi-search"></i>
+          <input type="text" name="" id="" placeholder="محصول مورد نظر خود را جست وجو کنید" />
+          <button>جست و جو</button>
+        </div>
+
+
+    </header>
+    <div class="category-box" id="home-category-box">
+
+      <a href="" class="category-item active" draggable="false">
+        <span>همه</span>
+        <img src="/src/images/all-white.png" alt="" draggable="false" />
+      </a>
+      <a href="" class="category-item" draggable="false">
+        <span>کت و شلوار</span>
+        <img src="/src/images/suit.png" alt="" draggable="false" />
+      </a>
+      <a href="" class="category-item" draggable="false">
+        <span>پالتو</span>
+        <img src="/src/images/overcoat-50png" alt="" draggable="false" />
+      </a>
+      <div class="category-item" draggable="false">
+        <span>مانتو</span>
+        <img src="/src/images/dress-50.png  " alt="" draggable="false" />
+      </div>
+      <a href="" class="category-item" draggable="false">
+        <span>کت تک</span>
+        <img src="/src/images/coat-50.png" alt="" draggable="false" />
+      </a>
+      <a href="" class="category-item" draggable="false">
+        <span>شلوار تک</span>
+        <img src="/src/images/pants-50.png" alt="" draggable="false" />
+      </a>
+      <a href="" class="category-item" draggable="false">
+        <span>شال</span>
+        <img src="/src/images/shawl.png" alt="" draggable="false" />
+      </a>
+      <a href="" class="category-item" draggable="false">
+        <span>تاپ</span>
+        <img src="/src/images/top.png" alt="" draggable="false" />
+      </a>
+    </div>
+    <div class="fillter">
+      <div class="shop-toolbar-wrapper">
+        <button id="shop-toolbar-fillter">
+          <i class="bi bi-sliders2"></i>
+        </button>
+        <div class="text">105 محصول</div>
+        <button id="shop-toolbar-vertical-button">
+          <i class="bi bi-grid-3x2"></i>
+        </button>
+        <button id="shop-toolbar-horizontal-button">
+          <i class="bi bi-grid-3x2"></i>
+        </button>
+      </div>
+      <div class="fillter-box" id="fillter-prodcuts">
+        <select name="" id="">
+          <option value="">موجودی</option>
+          <option value="">موجود و ارسال فوری</option>
+          <option value="">ناموجود و قابل سفارش</option>
+        </select>
+        <select name="" id="">
+          <option value="">مرتب سازی</option>
+          <option value="">مرتب سازی بر اساس محبوبیت</option>
+          <option value="">مرتب سازی براساس پرفروش ترین</option>
+          <option value="">مرتب سازی بر اساس هزینه (زیاد به کم )</option>
+          <option value="">مرتب سازی بر اساس هزینه (کم به زیاد )</option>
+          <option value="">مرتب سازی بر اساس جدیدترین ها</option>
+        </select>
+        <button>فیلتر</button>
+      </div>
+
+    </div>
+    <div class="home-product-items" id="home-paginated-list">
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a href="/product-detail.html" class="home-product-item home-product-link" draggable="false" target="_blank">
+        <div class="sticker">
+          <i class="bi bi-cart-plus"></i>
+        </div>
+        <img src="https://mantomirdamad.com/wp-content/uploads/2022/10/0R4A8853.jpg" alt="" />
+        <div class="text">
+          <div class="title">مانتو پاییزه</div>
+          <div class="caption">
+            <span>زنانه</span>
+            <div class="line"></div>
+            <span>مانتو </span>
+          </div>
+          <div class="colors"></div>
+          <div class="price">
+            <span>12,000,000</span>
+            <div>
+              <span>10,000,000</span>
+              <span>تومان</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="pagination-container">
+      <button class="pagination-button" id="pagination-prev-button" aria-label="Previous page" title="Previous page">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+      <div id="pagination-numbers"></div>
+      <button class="pagination-button" id="pagination-next-button" aria-label="Next page" title="Next page">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+    </div>
+  </div>
+  <footer>
+    <div class="box">
+      <div class="info">
+        <a href="tel:09151569918">
+          <i class="bi bi-telephone"></i>
+          09151569918
+        </a>
+        <div class="address">
+          <div>
+            <span>آدرس</span>
+            <span>
+              ملک آباد 7 - نبش فرهاد 6 - پلاک 105 (درب حیاط سر نبش )
+            </span>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642292.769271925!2d54.72058032506915!3d36.49130212726319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f6c922927c899a9%3A0x6e1a8e79e3a4bb8a!2sANOOHE!5e0!3m2!1sen!2s!4v1732751343307!5m2!1sen!2s"
+            height="100" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="links">
+        <a href="">درباره ما
+          <i class="bi bi-info-circle"></i>
+        </a>
+        <a href="">تماس با ما
+
+          <i class="bi bi-telephone"></i>
+        </a>
+        <a href="">
+          همکاری با ما
+          <i class="bi bi-headset"></i></a>
+        <a href="">سوالات متداول
+          <i class="bi bi-chat-dots"></i>
+        </a>
+        <a href="">جدول سایز بندی
+
+          <i class="bi bi-file-spreadsheet"></i>
+        </a>
+      </div>
+      <div class="page-link">
+        <a href="/home.html">
+          <span>خانه</span>
+          <i class="bi bi-house-door"></i>
+        </a>
+        <a href="">
+          <span> پروفایل </span>
+          <i class="bi bi-person"></i>
+        </a>
+
+        <a href=""> <span>سبد خرید </span> <i class="bi bi-cart3"></i> </a>
+        <a href="">
+          <span>فروشگاه</span>
+          <i class="bi bi-shop"></i>
+        </a>
+        <button onclick="openSearchBox()">
+          <span>جست وجو</span>
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+      <div class="brand">
+        <img src="/src/images/logo-nobg.png" alt="" />
+        <span> گالری آنوهه </span>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="box">
+      <div class="social-media">
+        <a href="">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="">
+          <i class="bi bi-telegram"></i>
+        </a>
+        <a href="">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+        <a href=""> <i class="bi bi-twitter"></i> </a>
+      </div>
+      <span>تمام حقوق اين وب‌سايت نیز برای گالری آنوهه است</span>
+    </div>
+  </footer>
+  <a href="/sa" id="whatsaapicon">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <script src="/src/js/script.js"></script>
+</body>
+
+</html>

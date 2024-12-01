@@ -1258,7 +1258,7 @@ header #search-box .box input::placeholder {
   display: flex;
   gap: 20px;
   justify-content: space-between;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .shopping-cart .box {
   width: 70%;

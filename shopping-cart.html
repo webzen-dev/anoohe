@@ -37,8 +37,8 @@
       </button>
       <span>کد ارسال شده را وارد کنید : </span>
       <div class="input-box">
-        <input type="number" name="" id=""><input type="number" name="" id=""><input type="number" name="" id=""><input
-          type="number" name="" id=""><input type="number" name="" id="">
+        <input type="number" name="" id=""><input type="number" name="" id=""><input type="number" name=""
+          id=""><input type="number" name="" id=""><input type="number" name="" id="">
       </div>
       <button class="login-button">ورود</button>
     </div>
@@ -52,7 +52,10 @@
         <span>پروفایل </span>
       </button>
 
-      <a href="/shopping-cart.html"> <i class="bi bi-cart3"></i> <span>سبد خرید </span> </a>
+      <a href="/shopping-cart.html" class="shopping-cart-link">
+
+        <span class="isAcive"></span>
+        <i class="bi bi-cart3"></i> <span class="sticker">سبد خرید </span> </a>
 
       <button onclick="openSearchBox()">
         <i class="bi bi-search"></i>
@@ -91,6 +94,7 @@
 
 
   </header>
+  
   <div class="shopping-cart">
     <div class="box">
       <div class="child-box">
@@ -167,15 +171,15 @@
       <div class="title">فاکتور سبد خرید</div>
       <div class="child-box">
         <span>جمع کل</span>
-        <span>20000000 تومان</span>
+        <span class="total-price">20000000 تومان</span>
       </div>
       <div class="child-box">
-        <span>تعدا کل محصولات</span>
-        <span>3</span>
+        <span>تعداد کل محصولات</span>
+        <span class="total-quantity">3</span>
       </div>
       <div class="child-box">
-        <span>مجموع کل </span>
-        <span>23999999</span>
+        <span>مجموع کل</span>
+        <span class="grand-total">23999999 تومان</span>
       </div>
       <form action="">
         <div class="input-box">

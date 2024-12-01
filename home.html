@@ -17,6 +17,7 @@
 
 <body>
   <div class="home-container">
+    <!-- header -->
     <header>
       <button id="menu-page-routing-button">
         <!-- insert icon in js code  -->
@@ -54,7 +55,10 @@
           <span>پروفایل </span>
         </button>
 
-        <a href="/shopping-cart.html"> <i class="bi bi-cart3"></i> <span>سبد خرید </span> </a>
+        <a href="/shopping-cart.html" class="shopping-cart-link">
+
+          <span class="isAcive"></span>
+          <i class="bi bi-cart3"></i> <span class="sticker">سبد خرید </span> </a>
 
         <button onclick="openSearchBox()">
           <i class="bi bi-search"></i>
@@ -93,6 +97,7 @@
 
 
     </header>
+    <!-- end header -->
     <div class="category-box" id="home-category-box">
 
       <a href="" class="category-item active" draggable="false">

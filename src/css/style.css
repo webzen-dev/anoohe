@@ -106,7 +106,7 @@ header .title {
 
   font-size: 2rem;
 }
-header .menu-items a span,
+header .menu-items a span:not(.isAcive),
 header .menu-items button span {
   display: none;
   position: absolute;
@@ -121,7 +121,7 @@ header .menu-items button span {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
-header .menu-items a:hover span,
+header .menu-items a:hover span:not(.isAcive),
 header .menu-items button:hover span {
   display: flex;
   align-items: center;
@@ -757,6 +757,24 @@ header #search-box .box input::placeholder {
   animation: fillter 500ms ease-in-out;
   z-index: -1;
   display: none;
+}
+
+.shopping-cart-link {
+  position: relative;
+}
+.shopping-cart-link .isAcive {
+  width: 20px;
+  height: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--light-color);
+  color: var(--bg-color);
+  position: absolute;
+  top: -5px;
+  left: -7.5px;
 }
 @keyframes fillter {
   0% {

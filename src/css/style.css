@@ -962,6 +962,17 @@ header #search-box .box input::placeholder {
   .product-detail
   .detail-box
   .specifications-box
+  .size-box
+  .size.no-available {
+  text-decoration: line-through;
+  color: rgb(255, 143, 143);
+  border-color: rgb(255, 143, 143);
+}
+
+.product-detail-page
+  .product-detail
+  .detail-box
+  .specifications-box
   .color-box
   .box
   .color {
@@ -1279,7 +1290,6 @@ header #search-box .box input::placeholder {
   font-weight: 500;
   padding: 0 10px;
   height: 50px;
-
   border-bottom: 1px solid var(--light-color);
   align-items: center;
   justify-content: space-between;
@@ -1792,7 +1802,6 @@ header #search-box .box input::placeholder {
 }
 .last-posts .box .item:hover {
   scale: 1.03;
-  /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.6); */
 }
 .gallery {
   display: flex;
@@ -1955,6 +1964,108 @@ header #search-box .box input::placeholder {
   border-radius: 10px;
   padding: 10px 5px;
 }
+.about-page {
+  width: 100%;
+  background: var(--bg-color);
+}
+.about-page .container {
+  background: url(https://wallpapercave.com/wp/wp10921927.jpg);
+  width: 100%;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-page .container .text-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+
+  z-index: 2;
+  color: var(--border-color);
+}
+.about-page .container .text-box .title {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  font-size: 2rem;
+}
+.about-page .container .text-box .title .line {
+  width: 70%;
+  height: 2px;
+  background: var(--white);
+}
+.about-page .container .text-box .box {
+  display: flex;
+
+  gap: 20px;
+}
+.about-page .container .text-box .box .item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  width: 180px;
+  font-size: 1.1rem;
+}
+.about-page .container .text-box .box .item .icon {
+  font-size: 1.7rem;
+}
+.about-page .container::before {
+  z-index: 1;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.about-page .description-box {
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  color: var(--light-color);
+  gap: 20px;
+}
+.about-page .description-box .title {
+  font-size: 1.6rem;
+  color: #000;
+}
+.about-page .description-box .text {
+  max-width: 80%;
+}
+.about-page .contact-information,
+.about-page .address-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px;
+  gap: 10px;
+}
+.about-page .address-box .title,
+.about-page .contact-information .title {
+  font-size: 1.6rem;
+}
+.about-page .contact-information .child-box {
+  display: flex;
+  gap: 10px;
+}
+.about-page .address-box .child-box {
+  display: flex;
+  max-width: 80%;
+  flex-direction: column;
+  gap: 10px;
+}
 footer {
   width: 100%;
   margin-top: 30px;
@@ -2070,6 +2181,220 @@ footer .box .social-media a i {
   width: 100%;
   height: 100%;
 }
+.sizing-table-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 80px;
+  gap: 10px;
+}
+.sizing-table-page .title {
+  font-size: 2rem;
+}
+.sizing-table-page .caption {
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+.sizing-table-page .sizing-tbale {
+  display: flex;
+  margin: 30px 0;
+  flex-direction: column;
+  width: 100%;
+}
+.sizing-table-page .sizing-tbale .row:first-child {
+  border-top: 2px solid var(--text-color);
+}
+.sizing-table-page .sizing-tbale .row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--text-color);
+}
+.sizing-table-page .sizing-tbale .row:nth-child(2n) {
+  background: #d4d4d4;
+}
+.sizing-table-page .sizing-tbale .row.head .culom {
+  font-size: 1.4rem;
+  color: #000;
+}
+.sizing-table-page .sizing-tbale .row .culom {
+  border-right: 2px solid var(--text-color);
+  height: 50px;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+}
+.sizing-table-page .sizing-tbale .row .culom:last-child {
+  border-left: 2px solid var(--text-color);
+}
+.cooperation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  padding-top: 80px;
+}
+.cooperation .title {
+  font-size: 2rem;
+  color: #000;
+  border-bottom: 2px solid var(--light-color);
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+}
+.cooperation form {
+  background: var(--border-color);
+  padding: 10px;
+  color: var(--text-color);
+  border-radius: 10px;
+  border: 2px solid var(--light-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+.cooperation form .name-input {
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+}
+.cooperation form > *:not(.name-input) {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.cooperation form > * textarea,
+.cooperation form > * select,
+.cooperation form > * input,
+.cooperation form .name-input .input input {
+  width: 100%;
+  resize: none;
+  outline: 1px solid #373737;
+  border-radius: 10px;
+  padding: 0 20px;
+  border: none;
+  height: 40px;
+}
+.cooperation form > * textarea {
+  height: 80px;
+}
+.cooperation form button {
+  height: 40px;
+
+  border-radius: 10px;
+  background: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  outline: none;
+}
+.cooperation form .name-input .input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+.cooperation .caption {
+  color: var(--text-color);
+  font-size: 1.4rem;
+}
+.frequently-asked-questions {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  direction: rtl;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 80px;
+}
+.frequently-asked-questions .title {
+  font-size: 2rem;
+}
+.frequently-asked-questions .questions-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+}
+.frequently-asked-questions .questions-box .questions-item {
+  width: calc(50% - 10px);
+  min-width: calc(50% - 10px);
+  display: flex;
+  cursor: pointer;
+  height: auto;
+  flex-direction: column;
+}
+.frequently-asked-questions .questions-box .questions-item .text-box {
+  border-radius: 4px 4px 0 0;
+  padding: 10px;
+  display: flex;
+  background: var(--border-color);
+
+  justify-content: space-between;
+}
+.frequently-asked-questions .questions-box .questions-item .answer {
+  animation: answer 300ms ease-in-out;
+  display: none;
+  border-radius: 0 0 4px 4px;
+  padding: 10px;
+  background: var(--border-color);
+}
+.link-to-sizing-table {
+  color: var(--text-color);
+}
+.detail-layer span {
+  font-size: 2rem;
+}
+.detail-layer button {
+  width: 120px;
+  height: 30px;
+
+  border: none;
+  border-radius: 4px;
+  background: var(--light-color);
+  color: var(--border-color);
+}
+.detail-layer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--border-color);
+  color: var(--light-color);
+  gap: 10px;
+}
+.link-to-sizing-table a {
+  border-bottom: 1px solid var(--light-color);
+  font-weight: 700;
+  color: var(--light-color);
+}
+@keyframes answer {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @media screen and (min-width: 1600px) {
   .category-page .category-list .item {
     max-width: 300px;
@@ -2166,6 +2491,18 @@ footer .box .social-media a i {
   }
 }
 @media screen and (max-width: 680px) {
+  .about-page .container {
+    height: 100vh;
+  }
+  .about-page .address-box .child-box,
+  .about-page .description-box .text {
+    width: 100%;
+    max-width: 100%;
+  }
+  .about-page .container .text-box .box {
+    flex-direction: column;
+    gap: 10px;
+  }
   .total-product-price {
     background: var(--white);
   }

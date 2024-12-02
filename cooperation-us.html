@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>همکاری با مزون آنوهه</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/src/images/fovicon.png">
+
+</head>
+
+<body>
+    <header>
+        <button id="menu-page-routing-button">
+            <!-- insert icon in js code  -->
+        </button>
+        <!-- login box -->
+        <div class="login">
+            <button class="close-login-box">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <span>وارد شوید</span>
+            <input type="number" placeholder="شما تلفن خود را وارد کنید" class="login-input">
+            <button class="login-button">ارسال کد</button>
+
+        </div>
+        <!-- authenticate box -->
+
+        <div class="authenticate-box">
+            <button class="close-authenticate-box">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <span>کد ارسال شده را وارد کنید : </span>
+            <div class="input-box">
+                <input type="number" name="" id=""><input type="number" name="" id=""><input type="number" name=""
+                    id=""><input type="number" name="" id=""><input type="number" name="" id="">
+            </div>
+            <button class="login-button">ورود</button>
+        </div>
+        <div class="menu-items">
+            <a href="/home.html">
+                <i class="bi bi-house-door"></i>
+                <span>خانه</span>
+            </a>
+            <button class="profile-button" href="">
+                <i class="bi bi-person"></i>
+                <span>پروفایل </span>
+            </button>
+
+            <a href="/shopping-cart.html" class="shopping-cart-link">
+
+                <span class="isAcive"></span>
+                <i class="bi bi-cart3"></i> <span class="sticker">سبد خرید </span> </a>
+
+            <button onclick="openSearchBox()">
+                <i class="bi bi-search"></i>
+                <span>جست وجو</span>
+            </button>
+        </div>
+        <div class="logo"><img src="/src/images/logo.jpg" alt="" /></div>
+        <div id="menu-page-routing-box">
+            <a href="/about-us.html">درباره ما
+                <i class="bi bi-info-circle"></i>
+            </a>
+            <a href="/cooperation-us.html">
+                همکاری با ما
+                <i class="bi bi-headset"></i></a>
+
+            <a href="">سوالات متداول
+                <i class="bi bi-chat-dots"></i>
+            </a>
+            <a href="/sizing-table.html">جدول سایز بندی
+
+                <i class="bi bi-file-spreadsheet"></i>
+            </a>
+        </div>
+        <div id="search-box">
+            <button id="close-search-box-button">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="box">
+                <i class="bi bi-search"></i>
+                <input type="text" name="" id="" placeholder="محصول مورد نظر خود را جست وجو کنید" />
+                <button>جست و جو</button>
+            </div>
+
+
+    </header>
+    <div class="cooperation">
+
+        <div class="title">همکاری با ما</div>
+        <div class="caption">
+            برای همکاری با مزون آنوهه فورم زیر را پر کنیدو درخواست خود را برای ما ارسال کنید
+        </div>
+        <form action="">
+            <div class="name-input">
+                <div class="input">
+                    <label for="name-cooperation-input">نام خود را وارد کنید <span>*</span></label>
+                    <input id="name-cooperation-input" type="text" placeholder="نام" required>
+                </div>
+                <div class="input">
+                    <label for="family-name-cooperation-input">نام خانوادگی خود را وارد کنید <span>*</span></label>
+                    <input id="family-name-cooperation-input" type="text" placeholder="نام خانوادگی" required>
+                </div>
+
+            </div>
+            <div class="selcet-cooperation">
+                <label for="selcet-cooperation-type">نوع همکاری خودرا انتخاب کنید</label>
+                <select name="" id="selcet-cooperation-type">
+                    <option value="">انبار و دسته بندی</option>
+                    <option value="">فروشگاه</option>
+                    <option value="">ادمین </option>
+                </select>
+            </div>
+            <div class="number-input">
+                <label for="number-cooperation">شماره تلفن همراه خود را وارد کنید <span>*</span></label>
+                <input type="number" required id="number-cooperation">
+
+
+            </div>
+            <div class="cooperation-caption">
+                <label for="cooperation-caption-textarea">توضیحات خود را وارد کنید</label>
+                <textarea name="" id="cooperation-caption-textarea" placeholder="توضحات ...."></textarea>
+            </div>
+            <button type="submit">ارسال</button>
+        </form>
+
+    </div>
+    <footer>
+        <div class="box">
+            <div class="info">
+                <a href="tel:09151569918">
+                    <i class="bi bi-telephone"></i>
+                    09151569918
+                </a>
+                <div class="address">
+                    <div>
+                        <span>آدرس</span>
+                        <span>
+                            ملک آباد 7 - نبش فرهاد 6 - پلاک 105 (درب حیاط سر نبش )
+                        </span>
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1642292.769271925!2d54.72058032506915!3d36.49130212726319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f6c922927c899a9%3A0x6e1a8e79e3a4bb8a!2sANOOHE!5e0!3m2!1sen!2s!4v1732751343307!5m2!1sen!2s"
+                        height="100" style="border: 0" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="links">
+                <a href="">درباره ما
+                    <i class="bi bi-info-circle"></i>
+                </a>
+                <a href="">تماس با ما
+
+                    <i class="bi bi-telephone"></i>
+                </a>
+                <a href="">
+                    همکاری با ما
+                    <i class="bi bi-headset"></i></a>
+                <a href="">سوالات متداول
+                    <i class="bi bi-chat-dots"></i>
+                </a>
+                <a href="">جدول سایز بندی
+
+                    <i class="bi bi-file-spreadsheet"></i>
+                </a>
+            </div>
+            <div class="page-link">
+                <a href="/home.html">
+                    <span>خانه</span>
+                    <i class="bi bi-house-door"></i>
+                </a>
+                <a href="">
+                    <span> پروفایل </span>
+                    <i class="bi bi-person"></i>
+                </a>
+
+                <a href=""> <span>سبد خرید </span> <i class="bi bi-cart3"></i> </a>
+                <a href="">
+                    <span>فروشگاه</span>
+                    <i class="bi bi-shop"></i>
+                </a>
+                <button onclick="openSearchBox()">
+                    <span>جست وجو</span>
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+            <div class="brand">
+                <img src="/src/images/logo-nobg.png" alt="" />
+                <span> گالری آنوهه </span>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="box">
+            <div class="social-media">
+                <a href="">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="">
+                    <i class="bi bi-telegram"></i>
+                </a>
+                <a href="">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+                <a href=""> <i class="bi bi-twitter"></i> </a>
+            </div>
+            <span>تمام حقوق اين وب‌سايت نیز برای گالری آنوهه است</span>
+        </div>
+    </footer>
+    <script src="/src/js/script.js"></script>
+</body>
+
+</html>

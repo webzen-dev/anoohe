@@ -6,13 +6,13 @@ const closeSearchBoxButton = document.getElementById("close-search-box-button");
 function openSearchBox() {
   searchBox.style.display = "flex";
 }
-closeSearchBoxButton.addEventListener("click", () => {
+closeSearchBoxButton?.addEventListener("click", () => {
   searchBox.style.display = "none";
 });
 PageRoutingBox.style.display = "none";
 
 PageRoutingButton.innerHTML = '<i class="bi bi-list"></i>';
-PageRoutingButton.addEventListener("click", () => {
+PageRoutingButton?.addEventListener("click", () => {
   if (PageRoutingBox.style.display === "none") {
     PageRoutingBox.style.display = "flex";
     PageRoutingButton.innerHTML = '<i class="bi bi-x-lg"></i>';
@@ -568,7 +568,6 @@ function productDetail() {
   });
 }
 
-
 const productFillter = document.getElementById("fillter-prodcuts");
 
 document
@@ -653,47 +652,45 @@ function productSlider() {
 function totalProductItem() {
   const STORAGE_KEY = "productCount";
 
-  // دریافت مقدار شمارنده از localStorage
   function getSavedCount() {
     return parseInt(localStorage.getItem(STORAGE_KEY), 10) || 1;
   }
 
-  // ذخیره مقدار شمارنده در localStorage
   function saveCount(count) {
     localStorage.setItem(STORAGE_KEY, count);
   }
 
-  // دریافت المان‌های مربوط به شمارنده و دکمه‌ها
   const productCounter = document.querySelector(".product-counter-box span");
-  const increaseButton = document.querySelector(".product-counter-box .increase-product");
-  const decreaseButton = document.querySelector(".product-counter-box .decrease-product");
+  const increaseButton = document.querySelector(
+    ".product-counter-box .increase-product"
+  );
+  const decreaseButton = document.querySelector(
+    ".product-counter-box .decrease-product"
+  );
   const mainProductPrice = document.querySelector(".main-product-price");
   const totalProductPrice = document.querySelector(".total-product-price");
 
-  // مقدار اولیه شمارنده از localStorage
   let number = getSavedCount();
 
-  // دریافت قیمت واحد محصول
-  let pricePerUnit = parseInt(mainProductPrice.textContent.replace(/\D/g, ""), 10) || 0;
+  let pricePerUnit =
+    parseInt(mainProductPrice.textContent.replace(/\D/g, ""), 10) || 0;
 
-  // تنظیم مقدار شمارنده در صفحه
   productCounter.textContent = number;
 
-  // به‌روزرسانی قیمت کل محصول
   const updateTotalPrice = () => {
-    totalProductPrice.textContent = "مجموع قیمت  کل :  " + (number * pricePerUnit).toLocaleString() + " تومان";
+    totalProductPrice.textContent =
+      "مجموع قیمت  کل :  " +
+      (number * pricePerUnit).toLocaleString() +
+      " تومان";
   };
 
-  // به‌روزرسانی وضعیت دکمه کاهش
   const updateDecreaseButtonState = () => {
     decreaseButton.disabled = number <= 1;
   };
 
-  // به‌روزرسانی قیمت و وضعیت دکمه‌ها
   updateTotalPrice();
   updateDecreaseButtonState();
 
-  // رویداد کلیک روی دکمه افزایش
   increaseButton?.addEventListener("click", () => {
     number += 1;
     productCounter.textContent = number;
@@ -702,7 +699,6 @@ function totalProductItem() {
     updateDecreaseButtonState();
   });
 
-  // رویداد کلیک روی دکمه کاهش
   decreaseButton?.addEventListener("click", () => {
     if (number > 1) {
       number -= 1;
@@ -712,8 +708,6 @@ function totalProductItem() {
       updateDecreaseButtonState();
     }
   });
-
-  // ذخیره مقدار نهایی قبل از بستن صفحه
   window.addEventListener("beforeunload", () => {
     saveCount(number);
   });
@@ -819,7 +813,7 @@ function handleAddToCart() {
 
   let productCounter = parseInt(productCounterSpan.textContent, 10) || 1;
   productCounterSpan.textContent = productCounter;
-  
+
   const updateCounterAndCart = () => {
     productCounterSpan.textContent = productCounter;
   };
@@ -969,90 +963,94 @@ function manageShoppingCart() {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) {
-      return JSON.parse(parts.pop().split(';').shift());
+      return JSON.parse(parts.pop().split(";").shift());
     }
     return null;
   }
 
   function setCookie(name, value, days) {
     const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = `${name}=${JSON.stringify(value)}; expires=${expires}; path=/`;
+    document.cookie = `${name}=${JSON.stringify(
+      value
+    )}; expires=${expires}; path=/`;
   }
 
-  const cartData = getCookie('cart');
-  const products = cartData ? cartData : []; 
+  const cartData = getCookie("cart");
+  const products = cartData ? cartData : [];
 
-  const productList = document.querySelector('.shopping-cart .box .child-box .product-list');
-  productList.innerHTML = '';
+  const productList = document.querySelector(
+    ".shopping-cart .box .child-box .product-list"
+  );
+  productList.innerHTML = "";
 
-  products.forEach(product => {
-    const productItem = document.createElement('div');
-    productItem.classList.add('product-item');
+  products.forEach((product) => {
+    const productItem = document.createElement("div");
+    productItem.classList.add("product-item");
     productItem.dataset.productId = product.id;
 
-    const imageDiv = document.createElement('div');
-    imageDiv.classList.add('image');
-    const image = document.createElement('img');
+    const imageDiv = document.createElement("div");
+    imageDiv.classList.add("image");
+    const image = document.createElement("img");
     image.src = product.image;
     image.alt = product.name;
     image.draggable = false;
     imageDiv.appendChild(image);
 
-    const textBox = document.createElement('div');
-    textBox.classList.add('text-box');
+    const textBox = document.createElement("div");
+    textBox.classList.add("text-box");
 
-    const infoDiv = document.createElement('div');
-    infoDiv.classList.add('info');
-    const nameDiv = document.createElement('div');
-    nameDiv.classList.add('name');
+    const infoDiv = document.createElement("div");
+    infoDiv.classList.add("info");
+    const nameDiv = document.createElement("div");
+    nameDiv.classList.add("name");
     nameDiv.textContent = product.name;
-    const sizeSpan = document.createElement('span');
+    const sizeSpan = document.createElement("span");
     sizeSpan.textContent = `سایز : ${product.size}`;
-    const colorDiv = document.createElement('div');
+    const colorDiv = document.createElement("div");
     colorDiv.textContent = `رنگ: `;
-    const colorBox = document.createElement('span');
+    const colorBox = document.createElement("span");
     colorBox.style.backgroundColor = product.color;
-    colorBox.style.display = 'inline-block';
-    colorBox.style.width = '20px';
-    colorBox.style.height = '20px';
-    colorBox.style.marginRight = '5px';
-    colorBox.style.border = '1px solid #ccc';
-    colorBox.style.borderRadius = '50%';
+    colorBox.style.display = "inline-block";
+    colorBox.style.width = "20px";
+    colorBox.style.height = "20px";
+    colorBox.style.marginRight = "5px";
+    colorBox.style.border = "1px solid #ccc";
+    colorBox.style.borderRadius = "50%";
     colorDiv.appendChild(colorBox);
     infoDiv.appendChild(nameDiv);
     infoDiv.appendChild(sizeSpan);
     infoDiv.appendChild(colorDiv);
     textBox.appendChild(infoDiv);
 
-    const priceDiv = document.createElement('div');
-    priceDiv.classList.add('price');
+    const priceDiv = document.createElement("div");
+    priceDiv.classList.add("price");
     priceDiv.textContent = `${product.price.toLocaleString()} تومان`;
     textBox.appendChild(priceDiv);
 
-    const counterDiv = document.createElement('div');
-    counterDiv.classList.add('counter');
-    const increaseButton = document.createElement('button');
-    increaseButton.classList.add('increase-counter-product-button');
+    const counterDiv = document.createElement("div");
+    counterDiv.classList.add("counter");
+    const increaseButton = document.createElement("button");
+    increaseButton.classList.add("increase-counter-product-button");
     increaseButton.innerHTML = '<i class="bi bi-plus-lg"></i>';
-    const quantitySpan = document.createElement('span');
-    quantitySpan.classList.add('counter-number');
+    const quantitySpan = document.createElement("span");
+    quantitySpan.classList.add("counter-number");
     quantitySpan.textContent = product.quantity;
-    const decreaseButton = document.createElement('button');
-    decreaseButton.classList.add('decrease-counter-product-button');
+    const decreaseButton = document.createElement("button");
+    decreaseButton.classList.add("decrease-counter-product-button");
     decreaseButton.innerHTML = '<i class="bi bi-dash-lg"></i>';
     counterDiv.appendChild(increaseButton);
     counterDiv.appendChild(quantitySpan);
     counterDiv.appendChild(decreaseButton);
     textBox.appendChild(counterDiv);
 
-    const totalPriceDiv = document.createElement('div');
-    totalPriceDiv.classList.add('main-price');
+    const totalPriceDiv = document.createElement("div");
+    totalPriceDiv.classList.add("main-price");
     const totalPrice = product.price * product.quantity;
     totalPriceDiv.textContent = `${totalPrice.toLocaleString()} تومان`;
     textBox.appendChild(totalPriceDiv);
 
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('delete-shopping-product-item');
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-shopping-product-item");
     deleteButton.innerHTML = '<i class="bi bi-trash3"></i>';
     productItem.appendChild(imageDiv);
     productItem.appendChild(textBox);
@@ -1062,24 +1060,28 @@ function manageShoppingCart() {
     increaseButton.addEventListener("click", () => {
       product.quantity += 1;
       quantitySpan.textContent = product.quantity;
-      totalPriceDiv.textContent = `${(product.price * product.quantity).toLocaleString()} تومان`;
-      setCookie('cart', products, 7);
+      totalPriceDiv.textContent = `${(
+        product.price * product.quantity
+      ).toLocaleString()} تومان`;
+      setCookie("cart", products, 7);
     });
 
     decreaseButton.addEventListener("click", () => {
       if (product.quantity > 1) {
         product.quantity -= 1;
         quantitySpan.textContent = product.quantity;
-        totalPriceDiv.textContent = `${(product.price * product.quantity).toLocaleString()} تومان`;
-        setCookie('cart', products, 7); 
+        totalPriceDiv.textContent = `${(
+          product.price * product.quantity
+        ).toLocaleString()} تومان`;
+        setCookie("cart", products, 7);
       }
     });
 
     deleteButton.addEventListener("click", () => {
-      const index = products.findIndex(p => p.id === product.id);
+      const index = products.findIndex((p) => p.id === product.id);
       if (index !== -1) {
         products.splice(index, 1);
-        setCookie('cart', products, 7);
+        setCookie("cart", products, 7);
         productItem.remove();
       }
     });
@@ -1087,8 +1089,8 @@ function manageShoppingCart() {
 }
 function updateCartTotal() {
   const cartCookie = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('cart='));
+    .split("; ")
+    .find((row) => row.startsWith("cart="));
 
   if (!cartCookie) {
     console.warn("کوکی 'cart' پیدا نشد!");
@@ -1096,22 +1098,33 @@ function updateCartTotal() {
   }
 
   try {
-    const cart = JSON.parse(decodeURIComponent(cartCookie.split('=')[1]));
+    const cart = JSON.parse(decodeURIComponent(cartCookie.split("=")[1]));
 
-    const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const totalPrice = cart.reduce(
+      (sum, item) => sum + item.price * item.quantity,
+      0
+    );
 
     const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    const totalPriceElement = document.querySelector('.form-chekout .total-price');
-    const grandPriceElement = document.querySelector('.form-chekout .grand-total');
+    const totalPriceElement = document.querySelector(
+      ".form-chekout .total-price"
+    );
+    const grandPriceElement = document.querySelector(
+      ".form-chekout .grand-total"
+    );
     if (totalPriceElement) {
-      totalPriceElement.textContent = `${totalPrice.toLocaleString('fa-IR')} تومان`;
-      grandPriceElement.textContent = `${totalPrice.toLocaleString('fa-IR')} تومان`;
+      totalPriceElement.textContent = `${totalPrice.toLocaleString(
+        "fa-IR"
+      )} تومان`;
+      grandPriceElement.textContent = `${totalPrice.toLocaleString(
+        "fa-IR"
+      )} تومان`;
     } else {
       console.warn("عنصر '.total-price' در صفحه پیدا نشد!");
     }
 
-    const totalQuantityElement = document.querySelector('.total-quantity');
+    const totalQuantityElement = document.querySelector(".total-quantity");
     if (totalQuantityElement) {
       totalQuantityElement.textContent = totalQuantity;
     } else {
@@ -1121,15 +1134,77 @@ function updateCartTotal() {
     console.error("خطا در پردازش کوکی 'cart':", error);
   }
 }
+function validateCooperationInput(input) {
+  const errorMessage = document.getElementById("error-message");
+  const value = input.value;
 
+  if (!/^\d*$/.test(value)) {
+    input.value = value.replace(/\D/g, "");
+    return;
+  }
+
+  if (value.length > 11) {
+    input.value = value.slice(0, 11);
+    return;
+  }
+
+  if (value.length === 11 && !/^09\d{9}$/.test(value)) {
+    errorMessage.style.display = "block";
+  } else {
+    errorMessage.style.display = "none";
+  }
+}
+document
+  .querySelectorAll(".frequently-asked-questions .questions-item")
+  .forEach((item) => {
+    item?.addEventListener("click", () => {
+      const answer = item.querySelector(".answer");
+      const icon = item.querySelector(".bi");
+
+      if (answer.style.display === "block") {
+        answer.style.display = "none";
+        icon.classList.replace("bi-dash-lg", "bi-plus-lg");
+      } else {
+        answer.style.display = "block";
+        icon.classList.replace("bi-plus-lg", "bi-dash-lg");
+      }
+    });
+  });
+  
+  function shouldShowLayer() {
+    const lastClickTime = localStorage.getItem("lastClickTime");
+    if (!lastClickTime) return true; 
+
+    const now = new Date().getTime();
+    const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
+
+    return now - lastClickTime > twoHoursInMilliseconds;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  pagination();
-  productSlider();
-  productDetail();
-  handleAddToCart();
-  updateCartTotal();
-  manageShoppingCart();
-  entetyProdocut();
-  totalProductItem();
+    const detailLayer = document.querySelector(".detail-layer");
+    const detailLayerButton = document.querySelector(".detail-layer-button");
+
+    if (shouldShowLayer()) {
+        detailLayer.style.display = "flex"; 
+    } else {
+        detailLayer.style.display = "none"; 
+    }
+
+    detailLayerButton?.addEventListener("click", () => {
+        detailLayer.style.display = "none";
+        localStorage.setItem("lastClickTime", new Date().getTime()); 
+    });
 });
+  document.addEventListener("DOMContentLoaded", () => {
+    pagination();
+    productSlider();
+    productDetail();
+    handleAddToCart();
+    updateCartTotal();
+    manageShoppingCart();
+    entetyProdocut();
+    totalProductItem();
+    shouldShowLayer()
+    validateCooperationInput();
+  });

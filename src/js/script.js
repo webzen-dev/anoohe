@@ -80,85 +80,18 @@ document
 document.querySelector(".close-custom-box")?.addEventListener("click", () => {
   cutomBox.style.display = "none";
 });
-const products = [
-  {
-    id: 1,
-    colors: ["Brown", "Cream", "Gray"],
-  },
-  {
-    id: 2,
-    colors: ["Orange", "White"],
-  },
-  {
-    id: 3,
-    colors: ["Black", "Red"],
-  },
-  {
-    id: 4,
-    colors: ["Brown", "Cream", "Gray"],
-  },
-  {
-    id: 5,
-    colors: ["Orange", "White"],
-  },
-  {
-    id: 6,
-    colors: ["Brown", "Cream", "Gray"],
-  },
-  {
-    id: 7,
-    colors: ["Orange", "White"],
-  },
-  {
-    id: 8,
-    colors: ["Black", "Red"],
-  },
-  {
-    id: 9,
-    colors: ["Brown", "Cream", "Gray"],
-  },
-  {
-    id: 10,
-    colors: ["Orange", "White"],
-  },
-  {
-    id: 11,
-    colors: ["Brown", "Cream", "Gray"],
-  },
-  {
-    id: 12,
-    colors: ["Orange", "White"],
-  },
-];
+document.querySelectorAll(".home-product-link").forEach((productItem) => {
+  const colorElements = productItem.querySelectorAll(".color");
 
-const colorMapping = {
-  Brown: "#a5702a",
-  Cream: "#FFFDD0",
-  Red: "#FF0000",
-  Gray: "#434343",
-  Orange: "#FFA500",
-  White: "#f0f0f0",
-  Black: "#000000",
-};
-const homeProductItem = document
-  .querySelectorAll(".home-product-link")
-  .forEach((productItem, index) => {
-    const productColors = products[index]?.colors || [];
-    const productColorsContainer = productItem.querySelector(".colors");
-
-    productColors.forEach((colorName) => {
-      const colorDiv = document.createElement("div");
-      colorDiv.classList.add("color");
-
-      if (colorMapping[colorName]) {
-        colorDiv.style.backgroundColor = colorMapping[colorName];
-      } else {
-        console.warn(`Color "${colorName}" not found in colorMapping.`);
-      }
-
-      productColorsContainer.appendChild(colorDiv);
-    });
+  colorElements.forEach((colorElement) => {
+    const colorValue = colorElement.getAttribute("data-color");
+    if (colorValue) {
+      colorElement.style.backgroundColor = colorValue;
+    } else {
+      console.warn("No color value found for this element.");
+    }
   });
+});
 
 document.querySelectorAll(".home-product-item").forEach((productItem) => {
   productItem.addEventListener("click", (event) => {
@@ -1170,41 +1103,41 @@ document
       }
     });
   });
-  
-  function shouldShowLayer() {
-    const lastClickTime = localStorage.getItem("lastClickTime");
-    if (!lastClickTime) return true; 
 
-    const now = new Date().getTime();
-    const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
+function shouldShowLayer() {
+  const lastClickTime = localStorage.getItem("lastClickTime");
+  if (!lastClickTime) return true;
 
-    return now - lastClickTime > twoHoursInMilliseconds;
+  const now = new Date().getTime();
+  const twoHoursInMilliseconds = 2 * 60 * 60 * 1000;
+
+  return now - lastClickTime > twoHoursInMilliseconds;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const detailLayer = document.querySelector(".detail-layer");
-    const detailLayerButton = document.querySelector(".detail-layer-button");
+  const detailLayer = document.querySelector(".detail-layer");
+  const detailLayerButton = document.querySelector(".detail-layer-button");
 
-    if (shouldShowLayer()) {
-        detailLayer.style.display = "flex"; 
-    } else {
-        detailLayer.style.display = "none"; 
-    }
+  if (shouldShowLayer()) {
+    detailLayer.style.display = "flex";
+  } else {
+    detailLayer.style.display = "none";
+  }
 
-    detailLayerButton?.addEventListener("click", () => {
-        detailLayer.style.display = "none";
-        localStorage.setItem("lastClickTime", new Date().getTime()); 
-    });
-});
-  document.addEventListener("DOMContentLoaded", () => {
-    pagination();
-    productSlider();
-    productDetail();
-    handleAddToCart();
-    updateCartTotal();
-    manageShoppingCart();
-    entetyProdocut();
-    totalProductItem();
-    shouldShowLayer()
-    validateCooperationInput();
+  detailLayerButton?.addEventListener("click", () => {
+    detailLayer.style.display = "none";
+    localStorage.setItem("lastClickTime", new Date().getTime());
   });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  pagination();
+  productSlider();
+  productDetail();
+  handleAddToCart();
+  updateCartTotal();
+  manageShoppingCart();
+  entetyProdocut();
+  totalProductItem();
+  shouldShowLayer();
+  validateCooperationInput();
+});

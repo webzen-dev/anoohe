@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پروفایل </title>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/src/images/fovicon.png">
+</head>
+
+<body>
+    <header>
+        <button id="menu-page-routing-button">
+            <!-- insert icon in js code  -->
+        </button>
+        <!-- login box -->
+        <div class="login">
+            <button class="close-login-box">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <span>وارد شوید</span>
+            <input type="number" placeholder="شما تلفن خود را وارد کنید" class="login-input">
+            <button class="login-button">ارسال کد</button>
+
+        </div>
+        <!-- authenticate box -->
+
+        <div class="authenticate-box">
+            <button class="close-authenticate-box">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <span>کد ارسال شده را وارد کنید : </span>
+            <div class="input-box">
+                <input type="number" name="" id=""><input type="number" name="" id=""><input type="number" name=""
+                    id=""><input type="number" name="" id=""><input type="number" name="" id="">
+            </div>
+            <button class="login-button">ورود</button>
+        </div>
+        <div class="menu-items">
+            <a href="/home.html">
+                <i class="bi bi-house-door"></i>
+                <span>خانه</span>
+            </a>
+            <button class="profile-button" href="">
+                <i class="bi bi-person"></i>
+                <span>پروفایل </span>
+            </button>
+
+            <a href="/shopping-cart.html" class="shopping-cart-link">
+
+                <span class="isAcive"></span>
+                <i class="bi bi-cart3"></i> <span class="sticker">سبد خرید </span> </a>
+
+            <button onclick="openSearchBox()">
+                <i class="bi bi-search"></i>
+                <span>جست وجو</span>
+            </button>
+        </div>
+        <div class="logo"><img src="/src/images/logo.jpg" alt="" /></div>
+        <div id="menu-page-routing-box">
+            <a href="/about-us.html">درباره ما
+                <i class="bi bi-info-circle"></i>
+            </a>
+
+            <a href="/cooperation-us.html">
+                همکاری با ما
+                <i class="bi bi-headset"></i></a>
+            <a href="/frequently-asked-questions.html">سوالات متداول
+                <i class="bi bi-chat-dots"></i>
+            </a>
+            <a href="/sizing-table.html">
+                جدول سایز بندی
+                <i class="bi bi-file-spreadsheet"></i>
+            </a>
+        </div>
+        <div id="search-box">
+            <button id="close-search-box-button">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="box">
+                <i class="bi bi-search"></i>
+                <input type="text" name="" id="" placeholder="محصول مورد نظر خود را جست وجو کنید" />
+                <button>جست و جو</button>
+            </div>
+
+
+    </header>
+
+
+    <div class="profile-title">
+        حساب کاربری
+    </div>
+    <div class="account">
+        <div class="list-of-status">
+            <div class="order">
+                <span>
+                    سفارش های پرداخت شده
+                </span>
+                <div class="number">
+                    2
+                </div>
+            </div>
+            <div class="total">
+                <span> جمع سفارشات :
+                </span>
+                <span> 20000000تومان
+                </span>
+            </div>
+            <div class="last-order">
+                <span>تاریخ ثبت اخرین سفارش
+
+                    :</span>
+                <span>1402/2/2</span>
+            </div>
+        </div>
+        <div class="box">
+            <div class="account-box">
+
+                <div class="header">
+                    <i class="bi bi-person-circle"></i>
+                    <span>اطلعات حساب کاربری</span>
+                    <div class="line"></div>
+
+                </div>
+
+                <form action="">
+                    <div class="input-box">
+                        <div class="input">
+                            <label for="account_name_input">
+                                نام
+                                <span>*</span>
+                            </label>
+                            <input type="text" required placeholder="نام خود را وارد کنید" id="account_name_input">
+                        </div>
+                        <div class="input">
+                            <label for="account_lastname_input">
+                                نام خانوادگی
+                                <span>*</span>
+                            </label>
+                            <input type="text" placeholder="نام خانوادگی خود را وارد کنید" id="account_lastname_input"
+                                required>
+                        </div>
+                    </div>
+                    <div class="input">
+                        <label for="account_number_input">
+                            شماره تماس <span>*</span>
+                        </label>
+                        <input type="number" placeholder="شماره تماس" id="account_number_input" required>
+
+                    </div>
+                    <div class="input">
+                        <label for="account_number_input">
+                            شماره تماس 2
+                            <span>*</span>
+                        </label>
+                        <input type="number" placeholder="شماره تماس" id="account_number_input" required>
+
+                    </div>
+                    <button>
+                        ثبت
+                    </button>
+                </form>
+            </div>
+
+
+
+
+            <div class="list-of-order">
+
+
+
+
+
+                <div class="order-item successful">
+                    <div class="code">
+                        <span>
+                            کد سفارش :
+                        </span>
+                        <span>#29WJN56</span>
+                    </div>
+                    <div class="isPay">
+                        <span> وضعیت پرداخت :
+                        </span>
+                        <span class="paid"> پرداخت شده <i class="bi bi-check2-circle"></i>
+                        </span>
+                    </div>
+                    <div class="price">
+                        <span>
+                            مبلغ :
+                        </span>
+                        <span>1000000 تومان</span>
+
+                    </div>
+                    <div class="status">
+                        <span>وضعیت سفارش :</span>
+                        <span> در حال ارسال</span>
+                    </div>
+                    <button class="view-purchased-order-button">مشاهده سفارش خود</button>
+                    <div class="purchased-order-display-box">
+                        <button class="purchased-order-close-button">
+                            بستن
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="order-item successful">
+                    <div class="code">
+                        <span>
+                            کد سفارش :
+                        </span>
+                        <span>#29WJN56</span>
+                    </div>
+                    <div class="isPay">
+                        <span> وضعیت پرداخت :
+                        </span>
+                        <span class="paid"> پرداخت شده <i class="bi bi-check2-circle"></i>
+                        </span>
+                    </div>
+                    <div class="price">
+                        <span>
+                            مبلغ :
+                        </span>
+                        <span>1000000 تومان</span>
+
+                    </div>
+                    <div class="status">
+                        <span>وضعیت سفارش :</span>
+                        <span> در حال ارسال</span>
+                    </div>
+                    <button class="view-purchased-order-button">مشاهده سفارش خود</button>
+                    <div class="purchased-order-display-box">
+                        <button class="purchased-order-close-button">
+                            بستن
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="order-item successful">
+                    <div class="code">
+                        <span>
+                            کد سفارش :
+                        </span>
+                        <span>#29WJN56</span>
+                    </div>
+                    <div class="isPay">
+                        <span> وضعیت پرداخت :
+                        </span>
+                        <span class="paid"> پرداخت شده <i class="bi bi-check2-circle"></i>
+                        </span>
+                    </div>
+                    <div class="price">
+                        <span>
+                            مبلغ :
+                        </span>
+                        <span>1000000 تومان</span>
+
+                    </div>
+                    <div class="status">
+                        <span>وضعیت سفارش :</span>
+                        <span> در حال ارسال</span>
+                    </div>
+                    <button class="view-purchased-order-button">مشاهده سفارش خود</button>
+                    <div class="purchased-order-display-box">
+                        <button class="purchased-order-close-button">
+                            بستن
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="order-item failed">
+                    <div class="code">
+                        <span>
+                            کد سفارش :
+                        </span>
+                        <span>#29WJN56</span>
+                    </div>
+                    <div class="isPay">
+                        <span> وضعیت پرداخت :
+                        </span>
+                        <span class="cansell">
+                            لغو شده
+                        </span>
+                    </div>
+                    <div class="status">
+                        <span>وضعیت سفارش :</span>
+                        <span> لغو شده</span>
+                    </div>
+                    <button class="view-purchased-order-button">مشاهده سفارش خود</button>
+                    <div class="purchased-order-display-box">
+                        <button class="purchased-order-close-button">
+                            بستن
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="order">
+                            <img src="https://mantomirdamad.com/wp-content/uploads/2020/10/010799-mirdamad-13558-1.jpg"
+                                alt="">
+                            <div class="text-box">
+                                <div class="name">مانتو اسپورت کد jks32j</div>
+                                <div class="size">
+                                    <span>سایز</span>
+                                    XL
+
+                                </div>
+                                <div class="colo-box">
+                                    <span>رنگ :</span>
+                                    <div class="color">
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <span>قیمیت : </span>
+                                    <span> 2000000تومان
+                                    </span>
+                                </div>
+                                <div class="total">
+                                    <span>تعداد :</span><span>2</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <!--  -->
+
+            </div>
+        </div>
+    </div>
+    <script src="/src/js/script.js"></script>
+</body>
+
+
+
+
+
+
+</html>

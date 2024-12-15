@@ -777,7 +777,16 @@ function handleAddToCart() {
       productPrice,
       productCounter
     );
-    alert("محصول به سبد خرید اضافه شد!");
+
+    const alertBox = document?.querySelector(".added-to-cart");
+
+    if (alertBox) {
+      alertBox.style.display = "flex";
+      setTimeout(() => {
+        alertBox.style.display = "none";
+      }, 2000);
+    }
+
     updateAddToCartButton();
   });
 
@@ -1129,6 +1138,124 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("lastClickTime", new Date().getTime());
   });
 });
+
+function getCartTotalFromCookie() {
+  const cartCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("cart="));
+
+  if (!cartCookie) {
+    console.warn("کوکی 'cart' پیدا نشد!");
+    return 0;
+  }
+
+  try {
+    const cart = JSON.parse(decodeURIComponent(cartCookie.split("=")[1]));
+    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  } catch (error) {
+    console.error("خطا در پردازش کوکی 'cart':", error);
+    return 0;
+  }
+}
+
+function getCartTotalFromCookie() {
+  const cartCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("cart="));
+
+  if (!cartCookie) {
+    console.warn("کوکی 'cart' پیدا نشد!");
+    return 0;
+  }
+
+  try {
+    const cart = JSON.parse(decodeURIComponent(cartCookie.split("=")[1]));
+    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  } catch (error) {
+    console.error("خطا در پردازش کوکی 'cart':", error);
+    return 0;
+  }
+}
+
+function getCartTotalFromCookie() {
+  const cartCookie = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("cart="));
+
+  if (!cartCookie) {
+    console.warn("کوکی 'cart' پیدا نشد!");
+    return 0;
+  }
+
+  try {
+    const cart = JSON.parse(decodeURIComponent(cartCookie.split("=")[1]));
+    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  } catch (error) {
+    console.error("خطا در پردازش کوکی 'cart':", error);
+    return 0;
+  }
+}
+
+function displaySuccessfulTransaction() {
+  const transactionBox = document.querySelector(".Successful-transaction");
+
+  if (!transactionBox) {
+    console.warn("عنصر '.Successful-transaction' در صفحه پیدا نشد!");
+    return;
+  }
+
+  const transactionId = transactionBox.getAttribute("data-code") || "نامشخص";
+
+  const amount = getCartTotalFromCookie();
+  const amountElement = transactionBox?.querySelector(
+    ".child-box:nth-child(1) span:nth-child(2)"
+  );
+  const transactionIdElement = transactionBox?.querySelector(
+    ".child-box:nth-child(2) span:nth-child(2)"
+  );
+
+  if (amountElement && transactionIdElement) {
+    amountElement.textContent = `${amount.toLocaleString("fa-IR")} تومان`;
+    transactionIdElement.textContent = `#${transactionId}`;
+  } else {
+    console.warn("عناصر مبلغ یا کد تراکنش یافت نشدند!");
+  }
+
+  transactionBox.style.display = "block";
+}
+
+displaySuccessfulTransaction();
+function profileScripts() {
+  const openOrderButtons = document.querySelectorAll(
+    ".view-purchased-order-button"
+  );
+  openOrderButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const displayBox = button.nextElementSibling;
+      if (
+        displayBox &&
+        displayBox.classList.contains("purchased-order-display-box")
+      ) {
+        displayBox.style.display = "flex";
+      }
+    });
+  });
+
+  const closeOrderButtons = document.querySelectorAll(
+    ".purchased-order-close-button"
+  );
+  closeOrderButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const displayBox = button.closest(".purchased-order-display-box");
+      if (displayBox) {
+        displayBox.style.display = "none";
+      }
+    });
+  });
+}
+
+profileScripts();
+
 document.addEventListener("DOMContentLoaded", () => {
   pagination();
   productSlider();

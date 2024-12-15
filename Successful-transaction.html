@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خرید شما با موفقیت انجام شد</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
+        rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="/src/images/fovicon.png">
+
+</head>
+
+<body>
+    <header>
+        <button id="menu-page-routing-button">
+            <!-- insert icon in js code  -->
+        </button>
+        <!-- login box -->
+        <div class="login">
+            <button class="close-login-box">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <span>وارد شوید</span>
+            <input type="number" placeholder="شما تلفن خود را وارد کنید" class="login-input">
+            <button class="login-button">ارسال کد</button>
+
+        </div>
+        <!-- authenticate box -->
+
+        <div class="authenticate-box">
+            <button class="close-authenticate-box">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <span>کد ارسال شده را وارد کنید : </span>
+            <div class="input-box">
+                <input type="number" name="" id=""><input type="number" name="" id=""><input type="number" name=""
+                    id=""><input type="number" name="" id=""><input type="number" name="" id="">
+            </div>
+            <button class="login-button">ورود</button>
+        </div>
+        <div class="menu-items">
+            <a href="/home.html">
+                <i class="bi bi-house-door"></i>
+                <span>خانه</span>
+            </a>
+            <button class="profile-button" href="">
+                <i class="bi bi-person"></i>
+                <span>پروفایل </span>
+            </button>
+
+            <a href="/shopping-cart.html" class="shopping-cart-link">
+
+                <span class="isAcive"></span>
+                <i class="bi bi-cart3"></i> <span class="sticker">سبد خرید </span> </a>
+
+            <button onclick="openSearchBox()">
+                <i class="bi bi-search"></i>
+                <span>جست وجو</span>
+            </button>
+        </div>
+        <div class="logo"><img src="/src/images/logo.jpg" alt="" /></div>
+        <div id="menu-page-routing-box">
+            <a href="/about-us.html">درباره ما
+                <i class="bi bi-info-circle"></i>
+            </a>
+
+            <a href="/cooperation-us.html">
+                همکاری با ما
+                <i class="bi bi-headset"></i></a>
+            <a href="/frequently-asked-questions.html">سوالات متداول
+                <i class="bi bi-chat-dots"></i>
+            </a>
+            <a href="/sizing-table.html">
+                جدول سایز بندی
+                <i class="bi bi-file-spreadsheet"></i>
+            </a>
+        </div>
+        <div id="search-box">
+            <button id="close-search-box-button">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="box">
+                <i class="bi bi-search"></i>
+                <input type="text" name="" id="" placeholder="محصول مورد نظر خود را جست وجو کنید" />
+                <button>جست و جو</button>
+            </div>
+
+
+    </header>
+        <div class="Successful-transaction" data-code="UWFIERH">
+            <div class="box">
+                <div class="icon">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+                <div class="title">
+                    پرداخت با موفقیت انجام شد !
+                </div>
+                <div class="caption">از اینکه آنوهه را انتخاب کردید سپاسگزاریم. ما قدردان فرصتی هستیم که در خدمت شماییم.
+                </div>
+                <div class="box">
+
+                    <div class="child-box">
+                        <span>
+                            مبلغ فاکتور :
+                        </span>
+                        <span>0 تومان</span>
+                    </div>
+                    <div class="child-box">
+                        <span>
+                            کد تراکنش :
+                        </span>
+                        <span>#</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="/src/js/script.js"></script>
+</body>
+
+</html>

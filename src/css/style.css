@@ -53,7 +53,7 @@ button {
   cursor: pointer;
   color: var(--text-color);
 }
-select{
+select {
   color: var(--text-color);
 }
 header {
@@ -395,6 +395,392 @@ header #search-box .box input::placeholder {
   width: 100%;
   height: 100%;
   font-size: 1.3rem;
+}
+.added-to-cart {
+  position: fixed;
+  z-index: 2222;
+  top: 30px;
+  right: 10px;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  padding: 10px 0;
+  display: none;
+  animation: alertBox 600ms ease-in-out;
+}
+.added-to-cart i {
+  font-size: 1.5rem;
+}
+.added-to-cart .line {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 10px;
+  border-radius: 0 0 10px 10px;
+  background: #00aa00;
+  animation: alertLine 900ms ease-in-out;
+}
+@keyframes alertBox {
+  0% {
+    opacity: 0;
+    right: -110%;
+    display: flex;
+  }
+
+  100% {
+    opacity: 1;
+    right: 10px;
+    display: flex;
+  }
+}
+@keyframes alertLine {
+  0% {
+    width: 0;
+  }
+  70% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.faild-transaction,
+.Successful-transaction {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 70px);
+  padding-top: 70px;
+}
+.faild-transaction > .box,
+.Successful-transaction > .box {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: calc(50% + 70px);
+  transform: translateY(50%);
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid green;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.faild-transaction > .box {
+  border-color: red;
+  gap: 10px;
+  padding: 10px 40px;
+}
+.faild-transaction > .box .box,
+.Successful-transaction > .box .box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  gap: 10px;
+  width: 100%;
+}
+.faild-transaction .box .icon {
+  font-size: 2rem;
+  color: red;
+}
+.Successful-transaction .box .icon {
+  font-size: 2rem;
+  color: green;
+}
+.Successful-transaction .box .caption {
+  color: var(--text-color);
+}
+
+.account {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 60px;
+}
+.account .list-of-status {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.account .list-of-status > div {
+  width: calc(100% / 3);
+  background: var(--text-color);
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+.account .box {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.account .box .account-box {
+  width: 70%;
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 10px;
+  height: 340px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.account .box .account-box .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 10px;
+}
+.account .box .account-box .header .line {
+  flex: 1;
+  height: 1px;
+  border-top: 3px dotted var(--text-color);
+}
+.account .box .account-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.account .box .account-box form .input-box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.account .box .account-box form .input-box .input {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.account .list-of-order {
+  width: 30%;
+  max-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+}
+.account .list-of-order .order-item .purchased-order-display-box {
+  position: fixed;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  padding-bottom: 60px;
+  padding-top: 130px;
+  justify-content: start;
+  align-items: center;
+  background: var(--bg-color);
+  overflow-y: auto;
+  animation: order-box 500ms ease-in-out;
+  display: none;
+}
+@keyframes order-box {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.account .list-of-order .order-item .purchased-order-display-box .order {
+  display: flex;
+  gap: 20px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  width: calc(50% - 10px);
+  position: relative;
+}
+.account
+  .list-of-order
+  .order-item.successful
+  .purchased-order-display-box
+  .order::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 128, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "";
+  border-radius: 10px;
+}
+.account
+  .list-of-order
+  .order-item.failed
+  .purchased-order-display-box
+  .order::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(128, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  content: "";
+  border-radius: 10px;
+}
+
+.account .list-of-order .order-item .purchased-order-display-box .order img {
+  width: 150px;
+  border-radius: 10px;
+  height: 200px;
+}
+.account
+  .list-of-order
+  .order-item
+  .purchased-order-display-box
+  .order
+  .text-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.account
+  .list-of-order
+  .order-item
+  .purchased-order-display-box
+  .order
+  .text-box
+  > * {
+  display: flex;
+  gap: 20px;
+  justify-content: start;
+}
+.account
+  .list-of-order
+  .order-item
+  .purchased-order-display-box
+  .order
+  .text-box
+  .color {
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border-radius: 50%;
+}
+.account .list-of-order .order-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 190px;
+  height: 190px;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 10px;
+}
+.account .list-of-order .order-item.successful {
+  border: 2px solid green;
+}
+.account .list-of-order .order-item.failed {
+  min-height: 160px;
+  height: 160px;
+  border: 2px solid red;
+}
+
+.account .list-of-order .order-item div {
+  display: flex;
+  justify-content: space-between;
+}
+.account .list-of-order .order-item .isPay .paid {
+  color: green;
+}
+.account .list-of-order .order-item .isPay .cansell {
+  color: red;
+}
+.profile-title {
+  padding: 10px;
+  padding-top: 90px;
+  font-size: 2rem;
+  text-align: center;
+}
+.account .list-of-order .order-item > button {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  background: var(--text-color);
+  color: var(--bg-color);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.purchased-order-close-button {
+  position: absolute;
+  top: 70px;
+  border-radius: 0px;
+  height: 50px;
+  right: 20px;
+background: var(--text-color);
+color: var(--bg-color);
+border: none;
+border-radius: 50%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+  width: 50px;
+  z-index: 33;
+}
+.account .box .account-box form .input-box .input input {
+  flex: 1;
+  height: 40px;
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  padding: 5px 10px;
+
+  width: 100%;
+}
+.account .box .account-box form .input input {
+  flex: 1;
+  min-height: 40px;
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  padding: 5px 10px;
+
+  width: 100%;
+}
+.account .box .account-box form .input span {
+  color: red;
+}
+.account .box .account-box form button {
+  height: 40px;
+  border: none;
+  outline: none;
+  background: var(--light-color);
+  color: var(--bg-color);
+  border-radius: 10px;
 }
 .home-container .category-box .category-item {
   width: 70px;
@@ -2456,6 +2842,13 @@ footer .box .social-media a i {
   }
 }
 @media screen and (max-width: 900px) {
+  .account .box {
+    flex-direction: column;
+  }
+  .account .box .account-box,
+  .account .box > div {
+    width: 100%;
+  }
   .product-detail-page .product-detail .detail-box,
   .product-detail-page .product-detail .image-box {
     width: calc(100% - 10px);
@@ -2493,18 +2886,61 @@ footer .box .social-media a i {
   .home-container .home-product-items .home-product-item-horizontal {
     width: calc(50% - 7.5px);
   }
+  .account .list-of-status {
+    flex-wrap: wrap;
+  }
+  .account .list-of-status > div {
+    width: calc(50% - 10px);
+    min-width: calc(50% - 10px);
+  }
+  .account .list-of-status > div:last-child {
+    width: 100%;
+    min-width: 100%;
+  }
 }
 @media screen and (max-width: 680px) {
-  .sizing-table-page .sizing-tbale .row.head .culom{
-    font-size: 1rem;
-  }
-  .cooperation form .name-input{
-    flex-direction: column;
-  }
-  .cooperation form .name-input .input{
+  .account .list-of-order .order-item .purchased-order-display-box .order {
     width: 100%;
   }
-  .cooperation .title{
+  .account
+    .list-of-order
+    .order-item
+    .purchased-order-display-box
+    .order
+    .price {
+    flex-direction: column;
+  }
+  .account .list-of-status {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .account .list-of-status > div {
+    width: 100%;
+    min-width: 100%;
+  }
+  .account .box .account-box {
+    height: auto;
+  }
+  .account .box .account-box form .input-box {
+    flex-direction: column;
+  }
+  .account .box .account-box form .input-box .input {
+    width: 100%;
+  }
+  .Successful-transaction > .box .box {
+    flex-direction: column;
+  }
+  .sizing-table-page .sizing-tbale .row.head .culom {
+    font-size: 1rem;
+  }
+  .cooperation form .name-input {
+    flex-direction: column;
+  }
+  .cooperation form .name-input .input {
+    width: 100%;
+  }
+  .cooperation .title {
     text-align: center;
     width: 100%;
   }
@@ -2514,7 +2950,7 @@ footer .box .social-media a i {
   .frequently-asked-questions .questions-box {
     flex-direction: column;
   }
-  .frequently-asked-questions .questions-box .questions-item{
+  .frequently-asked-questions .questions-box .questions-item {
     width: 100%;
   }
   .about-page .container {

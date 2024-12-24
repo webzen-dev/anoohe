@@ -527,44 +527,57 @@ header #search-box .box input::placeholder {
   gap: 20px;
   justify-content: space-between;
 }
-.account .box .account-box {
-  width: 70%;
+.account-box {
+  width: 100%;
   border: 2px solid var(--text-color);
   border-radius: 10px;
   padding: 10px;
-  height: 340px;
+  height: 520px;
 
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.account .box .account-box .header {
+.account-box .header {
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0 10px;
   gap: 10px;
 }
-.account .box .account-box .header .line {
+.account-box .header .line {
   flex: 1;
   height: 1px;
   border-top: 3px dotted var(--text-color);
 }
-.account .box .account-box form {
+.account-box form {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
 }
-.account .box .account-box form .input-box {
+.account-box form .input-box {
   width: 100%;
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
-.account .box .account-box form .input-box .input {
+.account-box form .input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#city_select_profile,
+.account-box form .input select {
+  background: var(--bg-color);
+  height: 40px;
+  min-height: 40px;
+}
+.account-box form .input-box .input {
   width: 50%;
   display: flex;
+  gap: 10px;
   flex-direction: column;
 }
 .account .list-of-order {
@@ -576,25 +589,94 @@ header #search-box .box input::placeholder {
   padding: 10px;
   gap: 20px;
 }
-.account .list-of-order .order-item .purchased-order-display-box {
-  position: fixed;
+.purchased-order-display-box {
   width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--border-color);
+  position: fixed;
+  padding-top: 90px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  max-height: 100vh;
+  right: 0;
+  display: none;
   gap: 20px;
-  flex-wrap: wrap;
-  min-height: 100vh;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  z-index: 22;
+  animation: order-box 400ms ease-in-out;
+}
+.transaction.failed .purchased-order-display-box .order::before,
+.transaction.warn .purchased-order-display-box .order::before {
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
-  padding-bottom: 60px;
-  padding-top: 130px;
-  justify-content: start;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: rgba(255, 255, 0, 0.1);
+  border-radius: 10px;
+}
+.transaction.failed .purchased-order-display-box .order::before {
+  background: rgba(255, 0, 0, 0.1);
+}
+.purchased-order-display-box .order {
+  position: relative;
+  width: 90%;
+  display: flex;
+  height: 130px;
+  background: var(--white);
+  border-radius: 10px;
   align-items: center;
-  background: var(--bg-color);
-  overflow-y: auto;
-  animation: order-box 500ms ease-in-out;
-  display: none;
+  padding: 5px;
+  gap: 10px;
+}
+.purchased-order-display-box .order .color-box {
+  display: flex;
+}
+.purchased-order-display-box .order .color-box .color {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+.product-detail .product-height span {
+  font-size: 1.1rem;
+}
+
+.product-detail .product-height .height {
+  /* font-size: 0.9rem; */
+}
+.product-detail .product-height .box {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.product-detail .product-height {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.purchased-order-display-box .order .total {
+  background: var(--border-color);
+
+  padding: 10px;
+  border-radius: 10px;
+}
+.purchased-order-display-box .order img {
+  width: 120px;
+  border-radius: 15px;
+  height: 120px;
+}
+.purchased-order-display-box .order .text-box {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
 }
 @keyframes order-box {
   0% {
@@ -604,93 +686,7 @@ header #search-box .box input::placeholder {
     opacity: 1;
   }
 }
-.account .list-of-order .order-item .purchased-order-display-box .order {
-  display: flex;
-  gap: 20px;
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  border: 2px solid var(--text-color);
-  width: calc(50% - 10px);
-  position: relative;
-}
-.account
-  .list-of-order
-  .order-item.successful
-  .purchased-order-display-box
-  .order::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 128, 0, 0.1);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  content: "";
-  border-radius: 10px;
-}
-.account
-  .list-of-order
-  .order-item.failed
-  .purchased-order-display-box
-  .order::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(128, 0, 0, 0.1);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  content: "";
-  border-radius: 10px;
-}
 
-.account .list-of-order .order-item .purchased-order-display-box .order img {
-  width: 150px;
-  border-radius: 10px;
-  height: 200px;
-}
-.account
-  .list-of-order
-  .order-item
-  .purchased-order-display-box
-  .order
-  .text-box {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.account
-  .list-of-order
-  .order-item
-  .purchased-order-display-box
-  .order
-  .text-box
-  > * {
-  display: flex;
-  gap: 20px;
-  justify-content: start;
-}
-.account
-  .list-of-order
-  .order-item
-  .purchased-order-display-box
-  .order
-  .text-box
-  .color {
-  width: 30px;
-  height: 30px;
-  background: #000;
-  border-radius: 50%;
-}
 .account .list-of-order .order-item {
   width: 100%;
   display: flex;
@@ -737,32 +733,44 @@ header #search-box .box input::placeholder {
   border-radius: 10px;
 }
 .purchased-order-close-button {
-  position: absolute;
-  top: 70px;
+  position: fixed;
   border-radius: 0px;
+  bottom: 0;
   height: 50px;
-  right: 20px;
-background: var(--text-color);
-color: var(--bg-color);
-border: none;
-border-radius: 50%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-  width: 50px;
+  right: 0;
+  left: 0;
+  /* background: var(--text-color); */
+  background: red;
+  font-size: 1.3rem;
+  color: var(--bg-color);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
   z-index: 33;
 }
-.account .box .account-box form .input-box .input input {
+.account-box form .input select,
+.account-box form .input textarea,
+.account-box form .input-box .input input {
   flex: 1;
+  color: var(--light-color);
   height: 40px;
   border: 1px solid var(--text-color);
   border-radius: 10px;
   padding: 5px 10px;
-
   width: 100%;
+  resize: none;
 }
-.account .box .account-box form .input input {
+.account-box form .input textarea {
+  outline: none;
+  height: 80px;
+}
+.account-box form .input input {
   flex: 1;
   min-height: 40px;
   border: 1px solid var(--text-color);
@@ -771,10 +779,10 @@ justify-content: center;
 
   width: 100%;
 }
-.account .box .account-box form .input span {
+.account-box form .input span {
   color: red;
 }
-.account .box .account-box form button {
+.account-box form button {
   height: 40px;
   border: none;
   outline: none;
@@ -1827,14 +1835,23 @@ justify-content: center;
   gap: 10px;
   width: 100%;
 }
+.shopping-cart form .input-box .input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.shopping-cart form .input-box select,
 .shopping-cart form .input-box textarea,
 .shopping-cart form .input-box input {
   outline: none;
+  background: var(--bg-color);
+
   border: 2px solid rgba(0, 0, 0, 0.3);
   resize: none;
   width: 100%;
   border-radius: 5px;
-  padding: 0 10px;
+  padding: 10px;
+  color: var(--light-color);
   height: 35px;
 }
 .shopping-cart form .input-box textarea {
@@ -2619,9 +2636,11 @@ footer .box .social-media a i {
 .sizing-table-page .sizing-tbale .row .culom:last-child {
   border-left: 2px solid var(--text-color);
 }
+
 .cooperation {
   width: 100%;
   display: flex;
+  min-height: calc(100vh - 466px);
   flex-direction: column;
   gap: 20px;
   padding: 20px;
@@ -2785,6 +2804,139 @@ footer .box .social-media a i {
     transform: translateY(0);
   }
 }
+
+.account-info {
+  padding: 20px;
+  gap: 10px;
+  padding-top: 90px;
+}
+.account-info > .title {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 20px;
+}
+.account-info > .box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.account-info .parrent-box {
+  display: flex;
+  width: 100%;
+}
+.account-info .parrent-box > .box.f {
+  width: 70%;
+}
+.account-info .box .status {
+  display: flex;
+
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 20px;
+  max-width: 100%;
+}
+.account-info .status .title {
+  font-size: 1.4rem;
+  text-align: center;
+}
+.account-info .status .box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.account-info .status .box .rep {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 20px;
+  justify-content: space-between;
+}
+.account-info .status .box .rep span.successful {
+  color: green;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.account-info .box.l {
+  width: 30%;
+  padding: 10px;
+  gap: 20px;
+  padding-left: 0;
+}
+.account-info .box.l .title {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+}
+.account-info .box.l .list-box {
+  padding: 0 10px;
+  padding-left: 0;
+  gap: 10px;
+
+  display: flex;
+  flex-direction: column;
+}
+.account-info .box.l .list-box .transaction {
+  border: 2px solid green;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+}
+.account-info .box.l .list-box .transaction.warn {
+  border-color: black;
+  background: rgba(255, 255, 0, 0.1);
+}
+.account-info .box.l .list-box .transaction.failed {
+  border-color: var(--text-color);
+  background: rgba(255, 0, 0, 0.1);
+  /* color: ; */
+}
+.account-info .box.l .list-box .transaction.failed .error,
+.account-info .box.l .list-box .transaction.warn .warn {
+  position: absolute;
+  bottom: 0;
+  border-radius: 10px 0 10px 0;
+  height: 30px;
+
+  right: 0;
+  width: 100px;
+  background: yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.account-info .box.l .list-box .transaction.failed .error {
+  background: red;
+  color: white;
+}
+.account-info
+  .box.l
+  .list-box
+  .transaction
+  > div:not(.purchased-order-display-box) {
+  display: flex;
+  justify-content: space-between;
+}
+.account-info .box.l .list-box .transaction > button {
+  border: none;
+  border-radius: 10px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  color: #000000;
+}
+#province_select_profile,
+#city_select_profile {
+  min-height: 40px;
+  padding: 10px;
+  background: var(--white);
+  height: 40px;
+}
 @media screen and (min-width: 1600px) {
   .category-page .category-list .item {
     max-width: 300px;
@@ -2819,6 +2971,13 @@ footer .box .social-media a i {
   }
 }
 @media screen and (max-width: 1024px) {
+  .account-info .parrent-box {
+    flex-direction: column;
+  }
+  .account-info .parrent-box .box.f,
+  .account-info .parrent-box .box {
+    width: 100%;
+  }
   .shopping-cart {
     flex-direction: column;
   }
@@ -2842,10 +3001,35 @@ footer .box .social-media a i {
   }
 }
 @media screen and (max-width: 900px) {
+  .purchased-order-display-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    align-items: start;
+  }
+
+  .purchased-order-display-box .order {
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+    width: calc(50% - 10px);
+    align-items: start;
+  }
+  .purchased-order-display-box .order .text-box {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .purchased-order-display-box .order img {
+    width: 150px;
+    width: 100%;
+    /* height: 150px; */
+    height: auto;
+  }
   .account .box {
     flex-direction: column;
   }
-  .account .box .account-box,
+  .account-box,
   .account .box > div {
     width: 100%;
   }
@@ -2899,17 +3083,19 @@ footer .box .social-media a i {
   }
 }
 @media screen and (max-width: 680px) {
-  .account .list-of-order .order-item .purchased-order-display-box .order {
+  .request-to-customize {
     width: 100%;
   }
-  .account
-    .list-of-order
-    .order-item
-    .purchased-order-display-box
-    .order
-    .price {
-    flex-direction: column;
+  .purchased-order-display-box {
+    padding-bottom: 130px;
   }
+  .purchased-order-close-button {
+    bottom: 60px;
+  }
+  .account-info {
+    padding-bottom: 90px;
+  }
+
   .account .list-of-status {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -2919,13 +3105,13 @@ footer .box .social-media a i {
     width: 100%;
     min-width: 100%;
   }
-  .account .box .account-box {
+  .account-box {
     height: auto;
   }
-  .account .box .account-box form .input-box {
+  .account-box form .input-box {
     flex-direction: column;
   }
-  .account .box .account-box form .input-box .input {
+  .account-box form .input-box .input {
     width: 100%;
   }
   .Successful-transaction > .box .box {
@@ -3184,6 +3370,23 @@ footer .box .social-media a i {
   .shopping-cart {
     padding-bottom: 60px;
     height: auto;
+  }
+  .product-detail .product-height .box {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 20px 10px;
+  }
+  .product-detail .product-height .box .height {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+  }
+  .product-detail .product-height .box .height:last-child {
+    border: none;
+  }
+  .product-detail .product-height .box .height span {
+    color: var(--light-color);
   }
 }
 @media screen and (max-width: 400px) {

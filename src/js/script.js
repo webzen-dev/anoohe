@@ -23,10 +23,14 @@ PageRoutingButton?.addEventListener("click", () => {
 });
 
 const loginBox = document.querySelector("header .login");
-const openLoginBoxBtn = document.querySelector(".profile-button");
-openLoginBoxBtn.addEventListener("click", () => {
-  loginBox.style.display = "flex";
+const openLoginBoxBtns = document.querySelectorAll(".profile-button"); 
+
+openLoginBoxBtns.forEach(button => {
+  button.addEventListener("click", () => {
+    loginBox.style.display = "flex"; 
+  });
 });
+
 document.querySelector(".close-login-box").addEventListener("click", () => {
   loginBox.style.display = "none";
 });
@@ -919,11 +923,14 @@ function manageShoppingCart() {
 
   const cartData = getCookie("cart");
   const products = cartData ? cartData : [];
-
   const productList = document.querySelector(
     ".shopping-cart .box .child-box .product-list"
   );
-  productList.innerHTML = "";
+  if (productList) {
+    productList.innerHTML = "";
+  } else {
+    console.warn("Element with selector not found!");
+  }
 
   products.forEach((product) => {
     const productItem = document.createElement("div");
@@ -997,7 +1004,7 @@ function manageShoppingCart() {
     productItem.appendChild(imageDiv);
     productItem.appendChild(textBox);
     productItem.appendChild(deleteButton);
-    productList.appendChild(productItem);
+    productList?.appendChild(productItem);
 
     increaseButton.addEventListener("click", () => {
       product.quantity += 1;
@@ -1078,11 +1085,16 @@ function updateCartTotal() {
 }
 function validateCooperationInput(input) {
   const errorMessage = document.getElementById("error-message");
-  const value = input.value;
+
+  if (!errorMessage) {
+    console.warn("Element with ID 'error-message' not found.");
+    return;
+  }
+
+  const value = input?.value || "";
 
   if (!/^\d*$/.test(value)) {
     input.value = value.replace(/\D/g, "");
-    return;
   }
 
   if (value.length > 11) {
@@ -1096,6 +1108,7 @@ function validateCooperationInput(input) {
     errorMessage.style.display = "none";
   }
 }
+
 document
   .querySelectorAll(".frequently-asked-questions .questions-item")
   .forEach((item) => {
@@ -1224,7 +1237,6 @@ function displaySuccessfulTransaction() {
   transactionBox.style.display = "block";
 }
 
-displaySuccessfulTransaction();
 function profileScripts() {
   const openOrderButtons = document.querySelectorAll(
     ".view-purchased-order-button"
@@ -1254,13 +1266,254 @@ function profileScripts() {
   });
 }
 
-profileScripts();
+const provincesAndCities = {
+  "آذربایجان شرقی": [
+    "تبریز",
+    "مراغه",
+    "مرند",
+    "میانه",
+    "اهر",
+    "هریس",
+    "بستان‌آباد",
+  ],
+  "آذربایجان غربی": [
+    "ارومیه",
+    "خوی",
+    "میاندوآب",
+    "مهاباد",
+    "سلماس",
+    "پیرانشهر",
+    "بوکان",
+  ],
+  اردبیل: ["اردبیل", "مشگین‌شهر", "خلخال", "پارس‌آباد", "گرمی", "بیله‌سوار"],
+  اصفهان: [
+    "اصفهان",
+    "کاشان",
+    "نجف‌آباد",
+    "خمینی‌شهر",
+    "شاهین‌شهر",
+    "فلاورجان",
+    "نطنز",
+  ],
+  البرز: ["کرج", "نظرآباد", "ساوجبلاغ", "طالقان", "اشتهارد"],
+  ایلام: ["ایلام", "دهلران", "مهران", "دره‌شهر", "آبدانان"],
+  بوشهر: ["بوشهر", "برازجان", "گناوه", "جم", "کنگان", "دشتی", "دشتستان"],
+  تهران: ["تهران", "ری", "شمیرانات", "اسلامشهر", "شهریار", "ورامین", "پاکدشت"],
+  "چهارمحال و بختیاری": [
+    "شهرکرد",
+    "بروجن",
+    "فارسان",
+    "لردگان",
+    "کوهرنگ",
+    "کیار",
+  ],
+  "خراسان جنوبی": ["بیرجند", "قائن", "فردوس", "طبس", "نهبندان", "سرایان"],
+  "خراسان رضوی": [
+    "مشهد",
+    "نیشابور",
+    "سبزوار",
+    "تربت حیدریه",
+    "کاشمر",
+    "خواف",
+    "تایباد",
+  ],
+  "خراسان شمالی": [
+    "بجنورد",
+    "شیروان",
+    "اسفراین",
+    "مانه و سملقان",
+    "آشخانه",
+    "جاجرم",
+  ],
+  خوزستان: [
+    "اهواز",
+    "آبادان",
+    "خرمشهر",
+    "دزفول",
+    "ماهشهر",
+    "شادگان",
+    "ایذه",
+    "بهبهان",
+  ],
+  زنجان: ["زنجان", "ابهر", "خرمدره", "طارم", "ماه‌نشان", "ایجرود"],
+  سمنان: ["سمنان", "شاهرود", "دامغان", "گرمسار", "مهدی‌شهر"],
+  "سیستان و بلوچستان": [
+    "زاهدان",
+    "چابهار",
+    "ایرانشهر",
+    "زابل",
+    "سراوان",
+    "خاش",
+    "کنارک",
+  ],
+  فارس: ["شیراز", "مرودشت", "کازرون", "جهرم", "لار", "فسا", "داراب"],
+  قزوین: ["قزوین", "آبیک", "بوئین‌زهرا", "تاکستان", "البرز"],
+  قم: ["قم"],
+  کردستان: ["سنندج", "سقز", "بانه", "مریوان", "قروه", "دیواندره", "بیجار"],
+  کرمان: ["کرمان", "رفسنجان", "جیرفت", "بم", "سیرجان", "زرند", "راور"],
+  کرمانشاه: [
+    "کرمانشاه",
+    "اسلام‌آباد غرب",
+    "هرسین",
+    "سنقر",
+    "پاوه",
+    "کنگاور",
+    "قصرشیرین",
+  ],
+  "کهگیلویه و بویراحمد": ["یاسوج", "دهدشت", "دوگنبدان", "سی‌سخت", "لیکک"],
+  گلستان: [
+    "گرگان",
+    "گنبد کاووس",
+    "علی‌آباد",
+    "آق‌قلا",
+    "بندر ترکمن",
+    "مراوه‌تپه",
+  ],
+  گیلان: ["رشت", "لاهیجان", "انزلی", "رودسر", "تالش", "صومعه‌سرا", "فومن"],
+  لرستان: ["خرم‌آباد", "بروجرد", "دورود", "کوهدشت", "الشتر", "پلدختر"],
+  مازندران: ["ساری", "بابل", "آمل", "قائم‌شهر", "تنکابن", "رامسر", "نوشهر"],
+  مرکزی: ["اراک", "ساوه", "خمین", "محلات", "دلیجان", "تفرش", "شازند"],
+  هرمزگان: [
+    "بندرعباس",
+    "قشم",
+    "کیش",
+    "بندر لنگه",
+    "میناب",
+    "رودان",
+    "حاجی‌آباد",
+  ],
+  همدان: [
+    "همدان",
+    "ملایر",
+    "نهاوند",
+    "اسدآباد",
+    "تویسرکان",
+    "رزن",
+    "کبودرآهنگ",
+  ],
+  یزد: ["یزد", "میبد", "اردکان", "تفت", "ابرکوه", "مهریز"],
+};
 
+function loadProvincesAndCities() {
+  const provinceSelect = document.getElementById("province_select_profile");
+  const citySelect = document.getElementById("city_select_profile");
+
+  if (!provinceSelect || !citySelect) {
+    console.warn("تگ‌های select پیدا نشدند!");
+    return;
+  }
+
+  const userProvince = provinceSelect.getAttribute("data-province");
+  const userCity = citySelect.getAttribute("data-city");
+  Object.keys(provincesAndCities).forEach((province) => {
+    const option = document.createElement("option");
+    option.value = province;
+    option.textContent = province;
+    option.setAttribute("data-city", provincesAndCities[province].join(","));
+    if (province === userProvince) {
+      option.selected = true;
+    }
+    provinceSelect.appendChild(option);
+  });
+
+  const updateCityDropdown = (selectedProvince) => {
+    const provinceOption = [...provinceSelect.options].find(
+      (option) => option.value === selectedProvince
+    );
+    citySelect.innerHTML = "<option value=''>انتخاب کنید</option>";
+
+    if (provinceOption) {
+      const cities = provinceOption.getAttribute("data-city");
+      if (cities) {
+        cities.split(",").forEach((city) => {
+          const option = document.createElement("option");
+          option.value = city;
+          option.textContent = city;
+          if (city === userCity) {
+            option.selected = true;
+          }
+          citySelect.appendChild(option);
+        });
+      }
+    }
+
+    if (citySelect.options.length === 1) {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = "هیچ شهری موجود نیست";
+      citySelect.appendChild(option);
+    }
+  };
+
+  updateCityDropdown(userProvince);
+
+  provinceSelect.addEventListener("change", () => {
+    const selectedProvince = provinceSelect.value;
+    updateCityDropdown(selectedProvince);
+  });
+}
+function loadProvincesAndCitiesShoppingCart() {
+  const provinceSelect = document.getElementById("province_select_shopping-cart");
+  const citySelect = document.getElementById("city_select_shopping-cart");
+
+  if (!provinceSelect || !citySelect) {
+    console.warn("تگ‌های select پیدا نشدند!");
+    return;
+  }
+
+  Object.keys(provincesAndCities).forEach((province) => {
+    const option = document.createElement("option");
+    option.value = province;
+    option.textContent = province;
+    provinceSelect.appendChild(option);
+  });
+
+  const updateCityDropdown = (selectedProvince) => {
+    citySelect.innerHTML = "<option value=''>انتخاب کنید</option>"; 
+
+    if (selectedProvince && provincesAndCities[selectedProvince]) {
+      provincesAndCities[selectedProvince].forEach((city) => {
+        const option = document.createElement("option");
+        option.value = city;
+        option.textContent = city;
+        citySelect.appendChild(option);
+      });
+    } else {
+      const option = document.createElement("option");
+      option.value = "";
+      option.textContent = "ابتدا استان را انتخاب کنید";
+      citySelect.appendChild(option);
+    }
+  };
+
+  provinceSelect.addEventListener("change", () => {
+    const selectedProvince = provinceSelect.value;
+    updateCityDropdown(selectedProvince);
+  });
+
+  updateCityDropdown("");
+}
+document.getElementById("ShppingCartNumberInputChekout")?.addEventListener("input", function(event) {
+  const value = event.target.value;
+  if (value.length > 11) {
+    event.target.value = value.slice(0, 11);
+  }
+});
+
+document.getElementById("ShppingCartNumberInputChekout2")?.addEventListener("input", function(event) {
+  const value = event.target.value;
+  if (value.length > 11) {
+    event.target.value = value.slice(0, 11);
+  }
+});
+profileScripts();
 document.addEventListener("DOMContentLoaded", () => {
+  loadProvincesAndCities();loadProvincesAndCitiesShoppingCart()
   pagination();
   productSlider();
   productDetail();
   handleAddToCart();
+  displaySuccessfulTransaction();
   updateCartTotal();
   manageShoppingCart();
   entetyProdocut();

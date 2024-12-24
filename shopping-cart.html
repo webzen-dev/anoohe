@@ -186,11 +186,24 @@
             :</label>
           <input type="text" required id="ShppingCartnameInputChekout" placeholder="نام و نام خانوادگی">
         </div>
+
         <div class="input-box">
-          <label for="ShppingCartCityInputChekout">
-            شهر خود را وارد کنید
-            :</label>
-          <input type="text" required id="ShppingCartCityInputChekout" placeholder="شهر و استان">
+          <div class="input">
+            <label for="province_select_shopping-cart">
+                استان :
+            </label>
+            <select id="province_select_shopping-cart" required>
+                <option value="">انتخاب کنید</option>
+            </select>
+        </div>
+        <div class="input">
+          <label for="city_select_shopping-cart">
+              شهر :
+          </label>
+          <select id="city_select_shopping-cart" required >
+              <option value="">ابتدا استان را انتخاب کنید</option>
+          </select>
+      </div>
         </div>
         <div class="input-box">
           <label for="addressTextarea">
@@ -198,6 +211,14 @@
 
           <textarea name="" required id="addressTextarea"
             placeholder="آدرس , محله , پلاک , طبقه , شماره واحد"></textarea>
+        </div>
+        <div class="input-box">
+          <label for="postal_code_input_shopping_card">کد پستی (اختیاری):</label>
+          <input type="text" 
+           placeholder="کد پستی 
+           "
+           id="postal_code_input_shopping_card"
+           >
         </div>
         <div class="input-box">
           <label for="ShppingCartNumberInputChekout">
@@ -294,7 +315,7 @@
           <i class="bi bi-whatsapp"></i>
         </a>
       </div>
-      <span>تمام حقوق اين وب‌سايت نیز برای گالری آنوهه است</span>
+      <span>تمام حقوق اين وب‌سايت نیز برای مزون آنوهه است</span>
     </div>
   </footer>
   <script src="src/js/script.js"></script>

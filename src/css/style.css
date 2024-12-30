@@ -651,6 +651,7 @@ header #search-box .box input::placeholder {
 .product-detail .product-height .height {
   /* font-size: 0.9rem; */
 }
+
 .product-detail .product-height .box {
   text-transform: uppercase;
   display: flex;
@@ -1417,7 +1418,7 @@ header #search-box .box input::placeholder {
   display: flex;
   gap: 20px;
 }
-
+.product-detail-page .product-detail .detail-box .specifications-box .material,
 .product-detail-page .product-detail .detail-box .specifications-box .whashing {
   display: flex;
   gap: 50px;
@@ -3206,14 +3207,22 @@ footer .box .social-media a i {
     .product-detail
     .detail-box
     .specifications-box
-    .whashing {
+    .whashing , .product-detail-page
+    .product-detail
+    .detail-box
+    .specifications-box
+    .material {
     justify-content: space-between;
   }
   .product-detail-page
     .product-detail
     .detail-box
     .specifications-box
-    .whashing,
+    .whashing,  .product-detail-page
+    .product-detail
+    .detail-box
+    .specifications-box
+    .material,
   .product-detail-page
     .product-detail
     .detail-box

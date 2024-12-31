@@ -532,7 +532,7 @@ header #search-box .box input::placeholder {
   border: 2px solid var(--text-color);
   border-radius: 10px;
   padding: 10px;
-  height: 520px;
+  height: 600px;
 
   display: flex;
   flex-direction: column;
@@ -2815,6 +2815,7 @@ footer .box .social-media a i {
   font-size: 1.5rem;
   text-align: center;
   padding: 20px;
+  padding-left: calc(30% + 10px);
 }
 .account-info > .box {
   display: flex;
